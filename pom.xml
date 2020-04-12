@@ -86,9 +86,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.rometools</groupId>
-            <artifactId>rome</artifactId>
-            <version>1.12.2</version>
+            <groupId>com.apptastic</groupId>
+            <artifactId>rssreader</artifactId>
+            <version>2.2.2</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>

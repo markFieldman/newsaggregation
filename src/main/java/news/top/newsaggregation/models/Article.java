@@ -1,12 +1,11 @@
 package news.top.newsaggregation.models;
 
-import com.rometools.rome.feed.rss.Item;
+import com.apptastic.rssreader.Item;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 
 @Data
@@ -27,18 +26,15 @@ public class Article{
     private String author;
     private String guid;
     private String isPermaLink;
-    private String content;
-    private Date pubDate;
-
+    private LocalDate pubDate;
     public static Article fromRSSItem(Item item){
         Article article = new Article();
-        article.setAuthor(Optional.ofNullable(item.getAuthor()).orElse(""));
-        article.setCategoryString(Optional.ofNullable(item.getCategories().get(0).getValue()).orElse(""));
-        article.setLink(Optional.ofNullable(item.getLink()).orElse(""));
-        article.setDescription(Optional.ofNullable(item.getDescription().getValue()).orElse(""));
-        article.setTitle(Optional.ofNullable(item.getTitle()).orElse(""));
-        article.setContent(Optional.ofNullable(item.getContent().getValue()).orElse(""));
-        article.setPubDate(Optional.ofNullable(item.getPubDate()).orElse(new Date()));
+        article.setAuthor(item.getAuthor().orElse(""));
+        article.setCategoryString(item.getCategory().orElse(""));
+        article.setLink(item.getLink().orElse(""));
+        article.setDescription(item.getDescription().orElse(""));
+        article.setTitle(item.getTitle().orElse(""));
+        article.setPubDate(LocalDate.parse(item.getPubDate().orElse("")));
         return article;
     }
 
