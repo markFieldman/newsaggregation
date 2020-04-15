@@ -4,7 +4,11 @@ import com.apptastic.rssreader.Item;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
@@ -26,7 +30,7 @@ public class Article{
     private String author;
     private String guid;
     private String isPermaLink;
-    private LocalDate pubDate;
+    private LocalDateTime pubDate;
 
     public void addToMediaList(List<Media> mediaList){
         if(this.mediaList!=null) {
@@ -43,7 +47,7 @@ public class Article{
         article.setLink(item.getLink().orElse(""));
         article.setDescription(item.getDescription().orElse(""));
         article.setTitle(item.getTitle().orElse(""));
-        article.setPubDate(LocalDate.parse(item.getPubDate().orElse("")));
+        article.setPubDate(LocalDateTime.from(DateTimeFormatter.RFC_1123_DATE_TIME.parse(item.getPubDate().orElse(""))));
         return article;
     }
 

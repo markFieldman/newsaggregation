@@ -6,6 +6,5 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@RestResource
 public interface ArticleRepository  extends JpaRepository<Article, Long> {
 }

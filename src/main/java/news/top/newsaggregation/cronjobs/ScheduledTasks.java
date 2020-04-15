@@ -30,7 +30,7 @@ public class ScheduledTasks {
     @Autowired
     private ParserImpl parser;
 
-    @Scheduled(cron = "*/15 * * * *")
+    @Scheduled(cron = "* */15 * * * *")
     public void doEvery30Minute() {
         try {
             RssReader reader = new RssReader();

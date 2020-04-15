@@ -17,11 +17,8 @@ public class ParserImpl implements Parser {
     @Override
     public  Article parseSite(Article article, ParserTemplate parserTemplate) {
         Document document = Jsoup.parse(Unirest.get(article.getLink()).asString().getBody());
-        //extract text and clean from HTML elements
         Elements textOfDocument = document.select(parserTemplate.getTextXpath());
         article.setDescription(textOfDocument.text());
-        // Extract title
-        // Extract Images LINKS by correct Query
         Elements images = document.select(parserTemplate.getImagesXpath());
         article.setMediaList(images.stream().map(element -> {
             Media media = new Media();
@@ -30,9 +27,8 @@ public class ParserImpl implements Parser {
             media.setMediaType(MediaType.IMAGE_JPEG);
             return media;
         }).collect(Collectors.toList()));
-        // Extract Video in order of ordinary extraction
         Elements linksToVideo = document.select(parserTemplate.getVideoXpath());
-        article.addToMediaList(images.stream().map(element -> {
+        article.addToMediaList(linksToVideo.stream().map(element -> {
             Media media = new Media();
             media.setLink(element.attr("href"));
             media.setArticle(article);
