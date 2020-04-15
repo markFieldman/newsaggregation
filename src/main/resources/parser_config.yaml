@@ -1,0 +1,38 @@
+The Guardian :
+  newsProvider: ""
+  titleXpath: ""
+  textXpath: ""
+  imagesXpath: ""
+  videoXpath: ""
+BBC:
+  newsProvider: ""
+  titleXpath: ""
+  textXpath: ""
+  imagesXpath: ""
+  videoXpath: ""
+ABC News:
+  newsProvider: ""
+  titleXpath: ""
+  textXpath: ""
+  imagesXpath: ""
+  videoXpath: ""
+CNN:
+  newsProvider: ""
+  titleXpath: ""
+  textXpath: ""
+  imagesXpath: ""
+  videoXpath: ""
+CBS:
+  - "https://www.cbsnews.com/latest/rss/main"
+  - "https://www.cbsnews.com/latest/rss/entertainment"
+NY Times:
+  - "https://rss.nytimes.com/services/xml/rss/nyt/Science.xml"
+  - "https://rss.nytimes.com/services/xml/rss/nyt/Space.xml"
+  - "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"
+WSJ:
+  - "https://feeds.a.dj.com/rss/RSSWorldNews.xml"
+  - "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml"
+  - "https://feeds.a.dj.com/rss/RSSMarketsMain.xml"
+  - "https://feeds.a.dj.com/rss/RSSWSJD.xml"
+  - "https://feeds.a.dj.com/rss/RSSLifestyle.xml"
+  - "https://blogs.wsj.com/speakeasy/feed/"

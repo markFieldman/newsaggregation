@@ -27,6 +27,15 @@ public class Article{
     private String guid;
     private String isPermaLink;
     private LocalDate pubDate;
+
+    public void addToMediaList(List<Media> mediaList){
+        if(this.mediaList!=null) {
+            this.mediaList.addAll(mediaList);
+        } else {
+            this.mediaList = mediaList;
+        }
+    }
+
     public static Article fromRSSItem(Item item){
         Article article = new Article();
         article.setAuthor(item.getAuthor().orElse(""));
